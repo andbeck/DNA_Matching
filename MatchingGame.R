@@ -8,7 +8,7 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput("activity", 
                   "Choose a Confiscation Record:", 
-                  choices = c("Activity 1", "Activity 2")),
+                  choices = c("Confiscation 1", "Confiscation 2")),
       radioButtons("animal_choice", 
                    "Compare the confiscated DNA sequence with the known endangered species.  Which animal was being traded illegally?  When you've done the first, choose the second activity.", 
                    choices = c("Tiger", "Domestic Cat", "Lion", "Leopard", "Jaguar"),
@@ -35,7 +35,7 @@ server <- function(input, output, session) {
   
   # Reactive to hold the selected image path based on dropdown selection
   selected_image <- reactive({
-    if (input$activity == "Activity 1") {
+    if (input$activity == "Confiscation 1") {
       return("images/activity1.jpg")  # Path to Activity 1 image
     } else {
       return("images/activity2.jpg")  # Path to Activity 2 image
@@ -49,10 +49,10 @@ server <- function(input, output, session) {
   
   # Reactive value to hold the correct answers
   correct_answers <- reactive({
-    if (input$activity == "Activity 1") {
-      return("Jaguar")  # Correct answer for Activity 1
+    if (input$activity == "Confiscation 1") {
+      return("Jaguar")  # Correct answer for Confiscation 1
     } else {
-      return("Leopard")  # Correct answer for Activity 2
+      return("Leopard")  # Correct answer for Confiscation 2
     }
   })
   
@@ -90,7 +90,7 @@ server <- function(input, output, session) {
   observeEvent(input$reset, {
     # Reset radio button and result
     updateRadioButtons(session, "animal_choice", selected = character(0))  # Clear radio buttons
-    updateSelectInput(session, "activity", selected = "Activity 1")  # Reset activity dropdown to default
+    updateSelectInput(session, "activity", selected = "Confiscation 1")  # Reset activity dropdown to default
     output$result <- renderUI({})  # Clear result
   })
 }
