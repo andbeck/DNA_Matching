@@ -10,7 +10,7 @@ ui <- fluidPage(
                   "Choose a Confiscation Record:", 
                   choices = c("Confiscation 1", "Confiscation 2")),
       radioButtons("animal_choice", 
-                   "Compare the confiscated DNA sequence with the known endangered species.  Which animal was being traded illegally?  When you've done the first, choose the second activity.", 
+                   "Compare the confiscated DNA sequence (at the bottom) to the known endangered species. Which animal was being traded illegally? When you've done the first, press reset and choose the second confiscation from the drop-down." 
                    choices = c("Tiger", "Domestic Cat", "Lion", "Leopard", "Jaguar"),
                    selected = character(0)),  # Ensure no default selection
       actionButton("submit", "Submit Answer"),
